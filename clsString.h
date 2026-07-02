@@ -9,11 +9,11 @@ private:
 
 public:
 
-    clsString() {
+    clsString() { //default constructor
         _Value = "";
     }
 
-    clsString(string Value) {
+    clsString(string Value) { //parameterized constructor
         _Value = Value;
     }
 
@@ -25,7 +25,7 @@ public:
         return _Value;
     }
 
-    __declspec(property(get = GetValue, put = SetValue)) string Value;
+    __declspec(property(get = GetValue, put = SetValue)) string Value; //so I can deal with the string value using '='
 
     static short CountWords(string S1) {
 
