@@ -123,14 +123,36 @@ int main() {
     //----------------
     //Joins
 
+    vector<string> vString1 = { "Khalid","Iyad","Awad","Tarazi" };
 
+    cout << "\n\nJoin String From Vector: \n";
+    cout << clsString::joinString(vString1, " ");
 
+    string arrString[] = { "Khalid","Iyad","Awad","Tarazi" };
 
+    cout << "\n\nJoin String From array: \n";
+    cout << clsString::joinString(arrString, 4, " ");
 
+    //----------------
 
+    String3.Value = "Khalid Iyad Awad Tarazi";
+    cout << "\n\nString     = " << String3.Value;
 
+    String3.reverseWordsInString();
+    cout << "\nReverse Words : " << String3.Value
+        << endl;
 
+    //----------------
 
+    cout << "\nReplace : " << String3.replaceWord("Replaced", "Tarazi") << endl;
+
+    //----------------
+
+    String3.Value = "This is: a sample text, with punctuations.";
+    cout << "\n\nString     = " << String3.Value;
+
+    String3.removenPunctuationFromString();
+    cout << "\nRemove Punctuations : " << String3.Value<< endl;
 
     system("pause>0");
     return 0;

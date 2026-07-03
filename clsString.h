@@ -301,11 +301,87 @@ public:
         _Value = trim(_Value);
     }
 
+    static string joinString(vector<string> vString, string delim) {
+        string s1 = "";
 
+        for (string& s : vString) {
+            s1 = s1 + s + delim;
+        }
 
+        return s1.substr(0, s1.length() - delim.length());
+    }
 
+    static string joinString(string arrString[], int length, string delim) {
+        string s1 = "";
 
+        for (int i = 0; i < length; i++) {
+            s1 = s1 + arrString[i] + delim;
+        }
 
+        return s1.substr(0, s1.length() - delim.length());
+    }
 
+    static string reverseWordsInString(string s1) {
+        vector<string> vString;
+        string s2 = "";
 
+        vString = split(s1, " ");
+
+        //declare iterartor
+        vector<string>::iterator iter = vString.end();
+
+        while (iter != vString.begin()) {
+            --iter;
+
+            s2 += *iter + " ";
+        }
+
+        s2 = s2.substr(0, s2.length() - 1); //remove last space
+
+        return s2;
+    }
+
+    void reverseWordsInString() {
+        _Value = reverseWordsInString(_Value);
+    }
+
+    static string replaceString(string s1, string stringToReplace, string sReplaceTo, bool matchCase = true) { //by default true.
+        
+        vector<string> vString = split(s1, " ");
+
+        for (string& s : vString) {
+            if (matchCase) {
+                if (s == stringToReplace) {
+                    s = sReplaceTo;
+                }
+            }
+            else {
+                if (lowerAllString(s) == lowerAllString(stringToReplace)) {
+                    s = sReplaceTo;
+                }
+            }
+        }
+
+        return joinString(vString, " ");
+    }
+
+    string replaceWord(string stringToReplace, string sReplaceTo) {
+        return replaceString(_Value, stringToReplace, sReplaceTo);
+    }
+
+    static string removenPunctuationFromString(string s) {
+        string s2 = "";
+
+        for (short i = 0; i < s.length(); i++) {
+            if (!ispunct(s[i])) {
+                s2 += s[i];
+            }
+        }
+
+        return s2;
+    }
+
+    void removenPunctuationFromString() {
+        _Value = removenPunctuationFromString(_Value);
+    }
 };
